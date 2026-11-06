@@ -140,7 +140,11 @@ jobs:
     name: Build (${{ matrix.name }})
     needs: [guard]
     # guard is skipped on workflow_dispatch; only a real failure stops us.
-    if: always() && needs.guard.result != 'failure' && needs.guard.result != 'cancelled'
+    # A manual run is for the Windows x64 local-install artifact only; stable
+    # tag pushes still build the full release matrix.
+    if: >-
+      always() && needs.guard.result != 'failure' && needs.guard.result != 'cancelled' &&
+      (github.event_name != 'workflow_dispatch' || matrix.label == 'windows_x64')
     permissions:
       contents: read
     strategy:

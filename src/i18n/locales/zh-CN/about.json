@@ -1,0 +1,20 @@
+{
+  "title": "关于",
+  "byline": "Maecly 开发",
+  "tagline": "适用于 Windows 和 Mac 的开源批量打印工具。无 15 个文件限制，无需 Adobe，无需支付 149 美元许可费。",
+  "version": {"line": "{{version}} · 构建于 {{buildDate}}", "withChannel": "{{version}} · 构建于 {{buildDate}} · {{channel}} 通道", "unavailable": "{{version}} · 独立网页预览"},
+  "channels": {"stable": "稳定版", "beta": "测试版", "nightly": "每日构建"},
+  "sections": {"updates": "更新", "components": "组件", "paths": "文件位置", "links": "链接"},
+  "updates": {
+    "check": "检查更新", "checking": "正在检查…", "upToDate": {"title": "已是最新版本", "detail": "版本 {{version}} · 检查时间 {{time}}"},
+    "unavailable": {"title": "{{channel}} 通道尚未发布更新", "detail": "未找到更新文件，因此没有可安装的内容。此通道尚未发布版本，或发布内容尚未公开。Pluryprint 可继续正常使用，请稍后再检查。"},
+    "available": {"group": "有可用更新", "title": "可更新到 {{version}}", "detail": "当前版本为 {{current}}。", "releaseNotes": "发行说明", "remindLater": "稍后提醒", "skipVersion": "跳过此版本", "install": "立即安装", "verifiedNote": "安装前会使用 Pluryprint 发布签名校验下载文件，无需管理员权限。"},
+    "deferred": "已推迟提醒。你可以随时再次检查。", "retry": "重试", "skipped": "已跳过 {{version}}，仍会提示更新的版本。", "undoSkip": "撤销跳过",
+    "install": {"installing": "正在下载并验证 {{version}}…", "progress": "{{percent}} %", "majorTitle": "安装重大版本更新？", "majorMessage": "{{version}} 是从 {{current}} 升级的重大版本，可能改变 Pluryprint 的工作方式。如果你依赖特定流程，请先阅读发行说明。", "majorConfirm": "安装 {{version}}", "restartTitle": "已安装 {{version}}", "restartDetail": "重启 Pluryprint 后即可使用。", "restart": "立即重启", "nothing": "此平台尚无可安装的更新，请从发行页面下载。", "signatureInvalid": "下载的更新未通过签名校验，因此没有安装。本机未作任何更改。请稍后重试，或从发行页面下载。", "failed": "无法安装更新：{{error}}"}
+  },
+  "components": {"platform": "平台："},
+  "paths": {"config": "配置：", "data": "数据：", "logs": "日志：", "openLogs": "打开日志文件夹"},
+  "ipcUnavailable": "IPC 不可用：{{error}}。在独立 Vite 开发服务器中运行时会出现此情况（没有 Tauri 宿主）。运行 {{command}} 可测试真实桥接。",
+  "links": {"releaseNotes": "发行说明", "license": "AGPL-3.0 许可证", "notices": "第三方声明", "cla": "贡献者协议（CLA）", "documentation": "文档", "reportIssue": "报告问题"},
+  "footer": {"license": "Pluryprint 是基于 {{license}} 授权的自由软件。不含遥测、云服务或账号。", "source": "源代码："}
+}

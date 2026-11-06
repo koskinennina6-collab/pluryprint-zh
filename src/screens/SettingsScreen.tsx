@@ -60,6 +60,7 @@ const CHANNEL_LABEL = {
 const LOCALE_LABELS: Record<Locale, string> = {
   'en-US': 'English',
   'es-ES': 'Español',
+  'zh-CN': '简体中文',
 };
 
 interface RowProps {

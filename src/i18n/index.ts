@@ -29,12 +29,21 @@ import esProfiles from './locales/es/profiles.json';
 import esQueue from './locales/es/queue.json';
 import esSettings from './locales/es/settings.json';
 
+import zhAbout from './locales/zh-CN/about.json';
+import zhCommon from './locales/zh-CN/common.json';
+import zhHome from './locales/zh-CN/home.json';
+import zhPrintJob from './locales/zh-CN/printJob.json';
+import zhPrinters from './locales/zh-CN/printers.json';
+import zhProfiles from './locales/zh-CN/profiles.json';
+import zhQueue from './locales/zh-CN/queue.json';
+import zhSettings from './locales/zh-CN/settings.json';
+
 // ---------------------------------------------------------------------------
 // Locales
 // ---------------------------------------------------------------------------
 
 /** BCP-47 tags the app ships translations for. */
-export const SUPPORTED_LOCALES = ['en-US', 'es-ES'] as const;
+export const SUPPORTED_LOCALES = ['en-US', 'es-ES', 'zh-CN'] as const;
 
 export type Locale = (typeof SUPPORTED_LOCALES)[number];
 
@@ -42,7 +51,7 @@ export type Locale = (typeof SUPPORTED_LOCALES)[number];
  * Fallback locale, and the same default the backend writes into `config.toml`
  * (`AppCfg::locale`). Also the language every missing key falls back to.
  */
-export const DEFAULT_LOCALE: Locale = 'en-US';
+export const DEFAULT_LOCALE: Locale = 'zh-CN';
 
 /** Narrow an arbitrary string (a config value, a browser tag) to a `Locale`. */
 export function isLocale(value: string): value is Locale {
@@ -99,9 +108,21 @@ const ES: LocaleCatalog = {
   about: esAbout,
 };
 
+const ZH_CN: LocaleCatalog = {
+  common: zhCommon,
+  home: zhHome,
+  printJob: zhPrintJob,
+  queue: zhQueue,
+  printers: zhPrinters,
+  profiles: zhProfiles,
+  settings: zhSettings,
+  about: zhAbout,
+};
+
 export const CATALOGS: Record<Locale, LocaleCatalog> = {
   'en-US': EN,
   'es-ES': ES,
+  'zh-CN': ZH_CN,
 };
 
 // ---------------------------------------------------------------------------

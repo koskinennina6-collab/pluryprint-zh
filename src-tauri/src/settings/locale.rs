@@ -22,7 +22,7 @@ use super::Config;
 
 /// The locales the UI has catalogs for. Mirrors `SUPPORTED_LOCALES` in
 /// `src/i18n/index.ts`; the first one is the default (`AppCfg::locale`).
-pub const SUPPORTED_LOCALES: [&str; 2] = ["en-US", "es-ES"];
+pub const SUPPORTED_LOCALES: [&str; 3] = ["en-US", "es-ES", "zh-CN"];
 
 /// Narrow a BCP-47 tag (or a Windows locale name) onto a supported locale:
 /// the exact tag, else its language (`es`, `es-MX`, `es_419` → `es-ES`).

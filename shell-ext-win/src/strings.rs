@@ -130,6 +130,19 @@ impl Labels {
             tooltip: "Imprime por lotes los archivos seleccionados con Pluryprint".into(),
         }
     }
+
+    /// Simplified Chinese labels for the Windows Explorer menu.
+    pub fn chinese() -> Self {
+        Self {
+            root: "Pluryprint".into(),
+            print_one: "打印 1 个文件".into(),
+            print_many: "打印 {count} 个文件".into(),
+            print_with_profile: "使用“{name}”打印".into(),
+            configure: "配置打印任务…".into(),
+            queue: "添加到打印队列".into(),
+            tooltip: "使用 Pluryprint 批量打印所选文件".into(),
+        }
+    }
 }
 
 /// The language subtag of the Windows display language (`GetUserDefaultUILanguage`),
@@ -148,11 +161,11 @@ pub fn os_ui_language() -> &'static str {
 }
 
 /// The language subtag of a Windows `LANGID` for the languages the menu has
-/// labels in: its primary language (the low 10 bits) `LANG_SPANISH` (0x0a)
-/// is `es`, anything else `en`. Pure.
+/// labels in: Spanish or Chinese; anything else uses English. Pure.
 pub fn language_of_langid(langid: u16) -> &'static str {
     match langid & 0x3ff {
         0x0a => "es",
+        0x04 => "zh",
         _ => "en",
     }
 }
@@ -195,6 +208,11 @@ impl Strings {
             "es" => Self {
                 lang: "es".into(),
                 labels: Labels::spanish(),
+                ..Self::defaults()
+            },
+            "zh" => Self {
+                lang: "zh".into(),
+                labels: Labels::chinese(),
                 ..Self::defaults()
             },
             _ => Self::defaults(),

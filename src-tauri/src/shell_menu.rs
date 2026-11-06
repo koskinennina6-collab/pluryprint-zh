@@ -39,13 +39,14 @@ pub const MAX_MENU_PROFILES: usize = 8;
 /// The catalogs, compiled in so the writer needs no frontend at run time.
 const EN_COMMON: &str = include_str!("../../src/i18n/locales/en/common.json");
 const ES_COMMON: &str = include_str!("../../src/i18n/locales/es/common.json");
+const ZH_COMMON: &str = include_str!("../../src/i18n/locales/zh-CN/common.json");
 
 /// The cache document. Field names are the reader's contract.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub struct ShellMenuCache {
     /// Format version; must equal [`CACHE_SCHEMA_VERSION`].
     pub schema_version: u32,
-    /// Language subtag of the labels (`en`, `es`). Diagnostics only.
+    /// Language subtag of the labels (`en`, `es`, `zh`). Diagnostics only.
     pub lang: String,
     /// The localized menu labels.
     pub labels: Labels,
@@ -82,7 +83,7 @@ pub struct MenuProfile {
     pub name: String,
 }
 
-/// The catalog language for an app locale (`es-ES` → `es`); anything without
+/// The catalog language for an app locale (`es-ES` → `es`, `zh-CN` → `zh`); anything without
 /// a catalog is English, the same fallback the UI uses.
 fn catalog_lang(locale: &str) -> (&'static str, &'static str) {
     let lang = locale
@@ -92,6 +93,7 @@ fn catalog_lang(locale: &str) -> (&'static str, &'static str) {
         .to_ascii_lowercase();
     match lang.as_str() {
         "es" => ("es", ES_COMMON),
+        "zh" => ("zh", ZH_COMMON),
         _ => ("en", EN_COMMON),
     }
 }

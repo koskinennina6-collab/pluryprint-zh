@@ -249,6 +249,7 @@ pub fn resolve_for_printer<'a>(settings: &'a JobSettings, printer: &str) -> Reso
 /// (`printJob:preview.notes.<reason>`).
 const EN_PRINT_JOB: &str = include_str!("../../../../src/i18n/locales/en/printJob.json");
 const ES_PRINT_JOB: &str = include_str!("../../../../src/i18n/locales/es/printJob.json");
+const ZH_PRINT_JOB: &str = include_str!("../../../../src/i18n/locales/zh-CN/printJob.json");
 
 /// One thing the honesty preview says about a setting that will not reach the
 /// printer as asked (or about how it is reached): a stable `reason`, its
@@ -323,6 +324,7 @@ fn preview_catalog(locale: &str) -> &'static serde_json::Value {
     use std::sync::OnceLock;
     static EN: OnceLock<serde_json::Value> = OnceLock::new();
     static ES: OnceLock<serde_json::Value> = OnceLock::new();
+    static ZH: OnceLock<serde_json::Value> = OnceLock::new();
     let parse = |raw: &str| serde_json::from_str(raw).unwrap_or(serde_json::Value::Null);
     let lang = locale
         .split(['-', '_'])
@@ -331,6 +333,7 @@ fn preview_catalog(locale: &str) -> &'static serde_json::Value {
         .to_ascii_lowercase();
     match lang.as_str() {
         "es" => ES.get_or_init(|| parse(ES_PRINT_JOB)),
+        "zh" => ZH.get_or_init(|| parse(ZH_PRINT_JOB)),
         _ => EN.get_or_init(|| parse(EN_PRINT_JOB)),
     }
 }

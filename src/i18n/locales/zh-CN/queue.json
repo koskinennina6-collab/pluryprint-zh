@@ -1,0 +1,241 @@
+{
+  "title": "打印队列",
+  "subtitle": {
+    "counts": "{{active}} 个进行中 · {{pending}} 个等待中 · {{done}} 个已完成",
+    "board": "看板视图 — 按任务阶段排列",
+    "timeline": "时间线 — 按时间顺序显示及耗时"
+  },
+  "views": {
+    "label": "队列视图",
+    "list": "列表",
+    "board": "看板",
+    "timeline": "时间线"
+  },
+  "actions": {
+    "pauseQueue": "暂停队列",
+    "resumeQueue": "继续队列",
+    "clearDone": "清除已完成项",
+    "cancelAll": "全部取消",
+    "pause": "暂停",
+    "resume": "继续",
+    "retry": "重试",
+    "cancel": "取消"
+  },
+  "groups": {
+    "active": "进行中",
+    "pending": "等待中",
+    "done": "最近完成",
+    "header": "{{label}} · {{count}}"
+  },
+  "board": {
+    "queued": "已排队",
+    "converting": "转换中",
+    "printing": "打印中",
+    "done": "已完成"
+  },
+  "status": {
+    "queued": "已排队",
+    "converting": "转换中",
+    "converted": "已转换",
+    "printing": "打印中",
+    "paused": "已暂停",
+    "done": "已完成",
+    "unconfirmed": "未确认",
+    "failed": "失败",
+    "cancelled": "已取消"
+  },
+  "notice": {
+    "loadingTitle": "正在加载队列…",
+    "loadingBody": "正在读取当前打印任务。",
+    "unavailableTitle": "队列不可用",
+    "unavailableBody": "打印队列由桌面应用管理；运行 Pluryprint 后即可查看和控制任务。",
+    "errorTitle": "队列不可用",
+    "errorBody": "无法读取队列。",
+    "errorHint": "没有数据丢失；任务仍保存在桌面应用中。重试即可重新读取。"
+  },
+  "empty": {
+    "title": "队列中没有任务",
+    "body": "打印文件后，正在处理、等待中和最近完成的任务都会显示在这里。"
+  },
+  "progress": {
+    "label": "{{file}} 的进度",
+    "indeterminate": "正在处理 — 打印队列未提供百分比"
+  },
+  "note": {
+    "readyToPrint": "准备打印",
+    "interruptedByShutdown": "因关机中断 · 继续即可恢复",
+    "heldByPrinter": "已暂停在系统打印队列中 · 请在那里释放任务",
+    "printerNeedsAttention": "打印机需要处理（纸张、墨水或离线状态）"
+  },
+  "job": {
+    "meta": "{{profile}} · {{printer}}",
+    "pages": "{{count}} 页",
+    "times": "{{from}} → {{to}}",
+    "took": "耗时 {{duration}}",
+    "defaultPrinter": "默认打印机"
+  },
+  "duration": {
+    "seconds": "{{seconds}} 秒",
+    "minutes": "{{minutes}} 分 {{seconds}} 秒",
+    "hours": "{{hours}} 小时 {{minutes}} 分"
+  },
+  "confirm": {
+    "clearTitle": "清除已完成任务",
+    "clearMessage_one": "清除 {{count}} 个已完成任务？它将从历史记录中移除，你有 {{seconds}} 秒可以撤销。",
+    "clearMessage_other": "清除 {{count}} 个已完成任务？它们将从历史记录中移除，你有 {{seconds}} 秒可以撤销。",
+    "cancelTitle": "取消此任务？",
+    "cancelMessage": "“{{file}}”正在打印。确定取消吗？已发送到打印机的页面仍可能打印出来。",
+    "cancelConfirm": "取消任务",
+    "cancelAllTitle": "取消所有未完成任务？",
+    "cancelAllMessage_one": "将取消 {{count}} 个未完成任务。此操作无法撤销，已发送到打印机的页面仍可能打印出来。",
+    "cancelAllMessage_other": "将取消 {{count}} 个未完成任务。此操作无法撤销，已发送到打印机的页面仍可能打印出来。",
+    "cancelAllConfirm": "全部取消"
+  },
+  "toast": {
+    "cleared_one": "已清除 {{count}} 个已完成任务",
+    "cleared_other": "已清除 {{count}} 个已完成任务",
+    "undo": "撤销",
+    "restored_one": "已保留 {{count}} 个已完成任务",
+    "restored_other": "已保留 {{count}} 个已完成任务",
+    "undoTooLate": "无法撤销；已完成任务已被清除。",
+    "cancelledAll_one": "已取消 {{count}} 个任务",
+    "cancelledAll_other": "已取消 {{count}} 个任务"
+  },
+  "notify": {
+    "batchDone_one": "{{total}} 个文件中有 {{done}} 个已成功打印",
+    "batchDone_other": "{{total}} 个文件中有 {{done}} 个已成功打印",
+    "batchUnconfirmed_one": "{{total}} 个文件中有 {{unconfirmed}} 个已发送到打印机，但未确认是否打印",
+    "batchUnconfirmed_other": "{{total}} 个文件中有 {{unconfirmed}} 个已发送到打印机，但未确认是否打印",
+    "batchFailed_one": "{{total}} 个文件中有 {{failed}} 个打印失败",
+    "batchFailed_other": "{{total}} 个文件中有 {{failed}} 个打印失败",
+    "batchFailedHint": "{{file}}：{{error}} — 打开日志文件夹查看完整任务记录。",
+    "batchCancelled_one": "已取消 {{count}} 个任务",
+    "batchCancelled_other": "已取消 {{count}} 个任务",
+    "jobNeedsAction": "打印已停止：{{file}} 需要处理",
+    "jobNeedsActionHint": "{{error}} — 修复后可从队列继续任务。",
+    "openQueue": "打开队列",
+    "alreadyFinished": "“{{file}}”已完成，无需取消。",
+    "liveUnavailable": "实时队列更新不可用；请重新打开应用后重试。",
+    "jobNeedsPasswordHint": "{{error}} — 使用“输入密码”解锁。",
+    "enterPassword": "输入密码"
+  },
+  "rowActions": {
+    "pause": "暂停 {{file}}",
+    "resume": "继续 {{file}}",
+    "retry": "重试 {{file}}",
+    "cancel": "取消 {{file}}"
+  },
+  "fix": {
+    "oneSided": "改为单面打印",
+    "oneSidedLabel": "将 {{file}} 改为单面打印",
+    "sendTo": "发送到其他打印机…",
+    "sendToLabel": "将 {{file}} 发送到其他打印机",
+    "install": "安装缺少的组件…",
+    "installLabel": "为 {{file}} 安装缺少的组件",
+    "alreadyInstalled": "{{name}} 已安装，正在恢复任务。",
+    "resumed_one": "{{name}} 已安装，等待它的任务正在恢复。",
+    "resumed_other": "{{name}} 已安装，等待它的 {{count}} 个任务正在恢复。",
+    "printersFailed": "无法加载可用于发送任务的打印机。"
+  },
+  "jobErrors": {
+    "codes": {
+      "conversion_timeout": "转换耗时超过 {{secs}} 秒，已停止。",
+      "conversion_failed": "无法转换文件以供打印：{{detail}}",
+      "print_failed": "打印失败：{{detail}}",
+      "unsupported_setting": "打印机驱动不支持此设置（{{printer}}）：{{detail}}",
+      "dependency_missing": "缺少必需程序：{{detail}}",
+      "unsupported_format": "不支持的文件格式：{{detail}}",
+      "cancelled": "任务已取消。",
+      "print_timeout": "打印机在 {{secs}} 秒内未完成任务。任务仍在系统打印队列中；重试前请检查打印机。",
+      "print_unconfirmed": "已发送到打印机，但系统打印队列未确认是否完成。再次打印前请检查打印机。",
+      "printer_unavailable": "未安装打印机“{{printer}}”，请选择其他打印机。",
+      "printer_disabled": "打印机“{{printer}}”已从 Pluryprint 移除。请在“打印机”页面恢复它，或选择其他打印机。",
+      "os_cancelled": "任务已在系统打印队列中取消。",
+      "print_aborted": "打印机中止了任务。请检查打印机后重试。",
+      "interrupted_by_shutdown": "此任务处理期间 Pluryprint 已关闭。",
+      "pdf_protected": "此 PDF 受保护，无法直接打印。"
+    },
+    "reasons": {
+      "conversion_failed": {
+        "cannot_read_input": "无法读取“{{file}}”。",
+        "workdir_failed": "Pluryprint 无法准备转换用临时文件夹，请检查磁盘剩余空间。",
+        "cannot_write_output": "无法保存转换后的 PDF，请检查磁盘剩余空间。",
+        "converter_failed": "{{tool}} 无法将此文件转换为 PDF。",
+        "converter_start_failed": "{{tool}} 已安装，但无法启动。",
+        "converter_crashed": "{{tool}} 意外停止。",
+        "converter_no_output": "{{tool}} 已结束，但没有生成页面。",
+        "pdf_invalid": "此文件不是有效的 PDF。",
+        "pdf_truncated": "PDF 文件被截断或已损坏。",
+        "pdf_no_pages": "PDF 中没有页面。",
+        "pdf_decrypt_failed": "PDF 已解锁，但无法准备打印。",
+        "image_damaged": "图像已损坏，或使用了无法读取的格式变体。",
+        "heif_decode_failed": "无法解码 HEIC/HEIF 图片；文件可能已损坏。",
+        "heif_size_unsupported": "不支持尺寸为 {{width}}×{{height}} 的 HEIC/HEIF 图像。",
+        "svg_invalid": "SVG 文件已损坏或不是有效的 SVG 图像。",
+        "svg_too_large": "SVG 图像过大或过于复杂，无法转换（上限：{{limit}} MB）。",
+        "svg_convert_failed": "无法将 SVG 图像转换为 PDF。",
+        "render_failed": "无法排版此页面以供打印。",
+        "page_too_large": "此页面所需内存超过 Pluryprint 的打印上限（{{limit}} MB）。请移除超大图片或拆分页面后重试。",
+        "render_worker_missing": "命令行工具旁未找到负责排版的 Pluryprint 应用，请重新安装。",
+        "share_reference_refused": "页面引用了 Pluryprint 不会加载的网络共享文件。现在页面始终由系统渲染器打印，因此会忽略此类文件；请重新打印。",
+        "page_not_checkable": "Pluryprint 无法安全准备此页面：页面开头格式错误（例如未结束的 <!DOCTYPE>），无法将安全策略放在首位。请修正页面开头，或用浏览器、编辑器重新保存后打印。",
+        "text_unreadable": "无法将此文本文件读取为文本。"
+      },
+      "conversion_timeout": {
+        "converter": "转换程序未能及时完成，已停止：{{detail}}",
+        "tool_timed_out": "{{tool}} 在 {{secs}} 秒内未完成，已停止。"
+      },
+      "print_timeout": {
+        "spooler": "发送任务到打印机耗时超过 {{secs}} 秒，已停止。"
+      },
+      "print_unconfirmed": {
+        "left_queue": "任务离开了系统打印队列，但没有报告已打印；它可能已打印，也可能在队列中被删除。再次打印前请检查打印机。",
+        "untracked": "系统打印队列已接受任务，但不支持跟踪，因此无法确认是否打印。再次打印前请检查打印机。",
+        "tracking_failed": "打印期间系统打印队列停止响应，因此无法确认是否打印。再次打印前请检查打印机。",
+        "not_verifiable": "Pluryprint 关闭时任务仍在系统打印队列中，现在无法将它与其他任务区分，因此无法确认是否打印。再次打印前请检查打印机。"
+      },
+      "print_failed": {
+        "sumatra_start_failed": "无法启动 SumatraPDF。",
+        "sumatra_exit": "SumatraPDF 无法向打印机发送任务（退出代码 {{status}}）。",
+        "spooler_rejected": "系统打印服务拒绝了任务。",
+        "wait_failed": "Pluryprint 无法继续跟踪打印进程。重试前请检查打印机。"
+      },
+      "unsupported_format": {
+        "no_extension": "文件没有扩展名，无法确定类型。",
+        "unsupported_type": "无法打印 .{{ext}} 文件。",
+        "gif_not_supported": "不支持 GIF 图片。请先将图像转换为 PNG 或 JPEG。"
+      },
+      "pdf_protected": {
+        "password_required": "此 PDF 受密码保护。请输入密码以打印。",
+        "password_incorrect": "密码无法打开此 PDF，请检查密码后重试。",
+        "printing_not_allowed": "PDF 作者不允许打印此文件。",
+        "unsupported_encryption": "此 PDF 使用 Pluryprint 无法打开的加密类型。"
+      },
+      "printer_unavailable": {
+        "no_printer": "未配置打印机，请先选择打印机。",
+        "ambiguous": "存在多个名为“{{printer}}”的打印机（{{candidates}}）。请在“打印机”页面选择一台或移除重复项。"
+      },
+      "unsupported_setting": {
+        "duplex": "打印机“{{printer}}”不支持双面打印。",
+        "paper": "打印机“{{printer}}”不支持纸张尺寸 {{paper}}。"
+      }
+    }
+  },
+  "password": {
+    "rowAction": "输入 {{file}} 的密码",
+    "title": "此 PDF 需要密码",
+    "body": "“{{file}}”受密码保护。请输入密码以打印。Pluryprint 仅在此任务中使用密码，不会保存，任务结束后即忘记。",
+    "label": "PDF 密码",
+    "applyToBatch_one": "也尝试用于此批次中的另一个受保护 PDF",
+    "applyToBatch_other": "也尝试用于此批次中的另外 {{count}} 个受保护 PDF",
+    "submit": "解锁并打印",
+    "checking": "正在检查密码…",
+    "incorrect": "密码无法打开此 PDF，请检查密码后重试。",
+    "empty": "请先输入密码。",
+    "later": "暂不处理",
+    "cancelJob": "取消任务",
+    "enter": "输入密码",
+    "waiting": "已收到密码。任务正在队列中等待；文件转换时会检查密码。",
+    "waitingPaused": "已收到密码，但队列已暂停；继续队列后才会检查密码。"
+  }
+}

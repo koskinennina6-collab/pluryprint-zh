@@ -26,6 +26,7 @@ use printpdf::*;
 /// The catalogs, compiled in so the page needs no frontend at run time.
 const EN_COMMON: &str = include_str!("../../../src/i18n/locales/en/common.json");
 const ES_COMMON: &str = include_str!("../../../src/i18n/locales/es/common.json");
+const ZH_COMMON: &str = include_str!("../../../src/i18n/locales/zh-CN/common.json");
 
 /// The page's sentences in one language (catalog section `testPage`).
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -58,6 +59,7 @@ impl Strings {
         let parse = |raw: &str| serde_json::from_str::<serde_json::Value>(raw).ok();
         let catalog = match lang.as_str() {
             "es" => parse(ES_COMMON),
+            "zh" => parse(ZH_COMMON),
             _ => None,
         };
         let english = parse(EN_COMMON);

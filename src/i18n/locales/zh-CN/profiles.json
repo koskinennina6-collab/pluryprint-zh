@@ -1,0 +1,14 @@
+{
+  "title": "打印预设", "subtitle": "已保存的打印机与设置组合", "notice": {"loadingTitle": "正在加载预设…", "errorTitle": "预设不可用", "readOnly": "编辑预设需要桌面应用。此处显示内置默认项。", "loadingBody": "正在读取已保存的预设。"},
+  "actions": {"newProfile": "新建预设", "import": "导入", "export": "导出", "clone": "复制", "makeDefault": "设为默认", "delete": "删除"},
+  "badge": {"unsaved": "未保存", "builtin": "内置", "default": "默认"},
+  "builtinNames": {"builtin-quick": "快速", "builtin-duplex-bw": "黑白双面", "builtin-photo-color": "照片彩色"},
+  "detail": {"id": "ID：{{id}}", "unsavedId": "（未保存）", "simplex": "单面", "copyOf": "{{name}} 的副本", "autoTray": "自动"},
+  "field": {"name": "名称", "printer": "打印机", "color": "颜色", "colorMode": "颜色模式", "duplex": "双面打印", "copies": "份数", "paper": "纸张", "orientation": "方向", "scaling": "缩放", "quality": "质量", "tray": "纸盒", "pageRange": "页码范围"},
+  "option": {"systemDefault": "系统默认", "color": "彩色", "monochrome": "黑白", "duplexOff": "单面", "duplexLongEdge": "双面 · 长边翻页", "duplexShortEdge": "双面 · 短边翻页", "orientationAuto": "自动", "orientationPortrait": "纵向", "orientationLandscape": "横向", "scalingFit": "适合页面", "scalingShrink": "缩小以适合", "scalingNone": "实际大小（100%）", "qualityDraft": "草稿", "qualityNormal": "普通", "qualityHigh": "高"},
+  "editor": {"namePlaceholder": "预设名称", "trayPlaceholder": "自动", "rangePlaceholder": "例如 1-5,10", "rangeHint": "适用于 PDF 和文档；留空表示全部页面。", "rangeError": "请输入页码，例如 1-5,10（范围必须递增）。", "copiesError": "请输入 1 到 999 之间的整数。", "nameEmpty": "请输入预设名称。", "nameTooLong": "名称不能超过 100 个字符。", "nameTaken": "此预设名称已存在。", "trayQualityNote": "每个任务都会发送纸盒和打印质量设置。纸盒名称必须与打印机驱动使用的纸盒名称一致。在 Windows 上，若驱动支持草稿或高质量，发送任务期间会临时将其设为仅适用于当前账户的默认质量；若驱动不支持，打印预览会说明。", "restored": "已恢复你上次访问时未保存的更改。", "cancel": "取消", "create": "创建预设", "save": "保存更改"},
+  "confirm": {"discardTitle": "放弃未保存的更改？", "discardMessage": "此预设包含尚未保存的编辑，确定放弃吗？", "discardConfirm": "放弃", "deleteTitle": "删除预设", "deleteMessage": "删除“{{name}}”？你可以在几秒内撤销。", "deleteConfirm": "删除"},
+  "toast": {"saved": "已保存“{{name}}”", "deleted": "已删除预设", "undo": "撤销", "exported": "已导出“{{name}}”", "imported_one": "已导入 {{count}} 个预设", "imported_other": "已导入 {{count}} 个预设", "changedOnDisk": "此预设已在编辑器外被修改。保存将以当前版本覆盖它。", "goneOnDisk": "此预设已在应用外被删除。"},
+  "tooltip": {"deleteIsDefault": "请先将其他预设设为默认", "export": "将此预设保存为可分享的 TOML 文件", "exportDirty": "请先保存或取消更改；导出的是已保存版本", "import": "从 TOML 文件添加预设"},
+  "dialog": {"exportTitle": "导出预设", "importTitle": "导入预设", "fileType": "Pluryprint 预设文件", "failed": "无法打开文件对话框。"}
+}

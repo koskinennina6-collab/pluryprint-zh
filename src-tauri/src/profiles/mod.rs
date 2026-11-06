@@ -310,20 +310,20 @@ pub fn builtins() -> Vec<Profile> {
 /// (what [`builtins`] carries), Spanish. A built-in is listed under the name
 /// of the app's language ([`localize_builtins`]); every one of these names is
 /// reserved, whatever the language, so a custom profile can never take one.
-const BUILTIN_NAMES: [(&str, &str, &str); 3] = [
-    (BUILTIN_QUICK, "Quick", "R\u{e1}pido"),
-    (BUILTIN_DUPLEX_BW, "Duplex BW", "Doble cara B/N"),
-    (BUILTIN_PHOTO_COLOR, "Photo Color", "Foto color"),
+const BUILTIN_NAMES: [(&str, &str, &str, &str); 3] = [
+    (BUILTIN_QUICK, "Quick", "R\u{e1}pido", "快速"),
+    (BUILTIN_DUPLEX_BW, "Duplex BW", "Doble cara B/N", "黑白双面"),
+    (BUILTIN_PHOTO_COLOR, "Photo Color", "Foto color", "照片彩色"),
 ];
 
 /// The name of built-in `id` in `locale` (`es-ES` → Spanish, anything else
 /// English), or `None` for an id that is not built in. Pure.
 pub fn builtin_name(id: &str, locale: &str) -> Option<&'static str> {
-    let spanish = crate::settings::locale::match_locale(locale) == Some("es-ES");
+    let language = crate::settings::locale::match_locale(locale);
     BUILTIN_NAMES
         .iter()
-        .find(|(b, _, _)| *b == id)
-        .map(|(_, en, es)| if spanish { *es } else { *en })
+        .find(|(b, _, _, _)| *b == id)
+        .map(|(_, en, es, zh)| match language { Some("es-ES") => *es, Some("zh-CN") => *zh, _ => *en })
 }
 
 /// Name the built-ins in `profiles` in `locale` (FR-093); customs keep theirs.
@@ -340,8 +340,8 @@ pub fn builtin_id_by_any_name(name: &str) -> Option<&'static str> {
     let lc = name.trim().to_lowercase();
     BUILTIN_NAMES
         .iter()
-        .find(|(_, en, es)| en.to_lowercase() == lc || es.to_lowercase() == lc)
-        .map(|(id, _, _)| *id)
+        .find(|(_, en, es, zh)| en.to_lowercase() == lc || es.to_lowercase() == lc || zh.to_lowercase() == lc)
+        .map(|(id, _, _, _)| *id)
 }
 
 /// True iff `id` names a built-in profile.
@@ -679,7 +679,7 @@ pub enum ImportError {
 fn taken_names(file: &ProfilesFile) -> std::collections::HashSet<String> {
     BUILTIN_NAMES
         .iter()
-        .flat_map(|(_, en, es)| [en.to_lowercase(), es.to_lowercase()])
+        .flat_map(|(_, en, es, zh)| [en.to_lowercase(), es.to_lowercase(), zh.to_lowercase()])
         .chain(file.profile.iter().map(|c| c.name.trim().to_lowercase()))
         .collect()
 }
